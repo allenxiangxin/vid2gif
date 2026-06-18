@@ -1,0 +1,27 @@
+# vid2gif configuration — every value here is optional; omitted keys use the
+# defaults shown below. Copy this file, tweak it, and pass it with:
+#   vid2gif input.mp4 output.gif --config my-config.yaml
+
+# --- Frame rate & timing ----------------------------------------------------
+fps: 15            # frames per second of the GIF
+start_time: null   # seconds to seek before encoding (null = from the start)
+duration: null     # seconds of video to encode (null = until the end)
+speed: 1.0         # playback speed multiplier (2.0 = twice as fast)
+reverse: false     # play the clip backwards
+
+# --- Sizing -----------------------------------------------------------------
+width: -1         # output width in px; -1 keeps the source aspect ratio
+height: -1         # output height in px; -1 keeps the source aspect ratio
+scale_flags: lanczos   # scaler: lanczos (sharp), bicubic, bilinear, neighbor
+
+# --- Palette / quality ------------------------------------------------------
+max_colors: 256    # palette size, 2..256 (fewer = smaller file)
+stats_mode: full   # palettegen: full | diff | single
+dither: sierra2_4a # none | bayer | floyd_steinberg | sierra2 | sierra2_4a
+bayer_scale: 3     # 0..5, only applies when dither is "bayer"
+diff_mode: none    # paletteuse: none | rectangle
+
+# --- Output -----------------------------------------------------------------
+loop: 0            # 0 = loop forever, -1 = play once, n = repeat n times
+overwrite: true    # overwrite the output file if it already exists
+loglevel: error    # ffmpeg log level: quiet | error | warning | info

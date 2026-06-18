@@ -1,0 +1,5 @@
+# Build backend only. Package metadata lives in setup.py for compatibility with
+# older pip/setuptools (which don't support PEP 621 [project] or PEP 660).
+[build-system]
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
